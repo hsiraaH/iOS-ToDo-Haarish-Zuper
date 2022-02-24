@@ -53,7 +53,7 @@ class TodoCell: UICollectionViewCell {
             priorityCircle.backgroundColor = UIColor.green
         
         case "MEDIUM":
-            priorityCircle.backgroundColor = UIColor.yellow
+            priorityCircle.backgroundColor = UIColor.orange
             
         case "HIGH":
             priorityCircle.backgroundColor = UIColor.red
@@ -136,6 +136,10 @@ class TodoViewController: UIViewController {
         task.resume()
     }
     
+    func updateCompleted() {
+        
+    }
+    
     @available(iOS 13.0, *)
     func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
         let layout = UICollectionViewCompositionalLayout {
@@ -158,7 +162,10 @@ class TodoViewController: UIViewController {
 extension TodoViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let numOfItems = todoList?.totalRecords {
-            return numOfItems
+            if numOfItems < 15 {
+                return numOfItems
+            }
+            return 15
         }
         
         return 0
@@ -175,6 +182,11 @@ extension TodoViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.setData(priority: item?.priority?.rawValue, todo: item?.title, tag: item?.tag, isCompleted: item?.isCompleted)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = todoList?.data![indexPath.item]
+        
     }
 }
 

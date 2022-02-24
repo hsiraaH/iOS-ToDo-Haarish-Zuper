@@ -9,17 +9,24 @@ import UIKit
 
 class OverlayView: UIViewController {
     
+    @IBOutlet weak var slideIdicator: UIView!
+    @IBOutlet weak var taskTag: UITextField!
+    @IBOutlet weak var taskName: UITextField!
+    @IBOutlet weak var prioritySegment: UISegmentedControl!
+    
     var hasSetPointOrigin = false
     var pointOrigin: CGPoint?
     
-//    @IBOutlet weak var slideIdicator: UIView!
+    var todoName: String?
+    var todoTag: String?
+    var priority: String = "LOW"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognizerAction))
         view.addGestureRecognizer(panGesture)
         
-//        slideIdicator.roundCorners(.allCorners, radius: 10)
+        slideIdicator.roundCorners(.allCorners, radius: 10)
     }
     
     override func viewDidLayoutSubviews() {
@@ -28,6 +35,29 @@ class OverlayView: UIViewController {
             pointOrigin = self.view.frame.origin
         }
     }
+    
+    @IBAction func priorityChanged(_ sender: Any) {
+        switch prioritySegment.selectedSegmentIndex {
+        case 0:
+            priority = "LOW"
+        case 1:
+            priority = "MEDIUM"
+        case 2:
+            priority = "HIGH"
+        default:
+            break
+        }
+    }
+    
+    @IBAction func submitClick(_ sender: Any) {
+        let taskPriority = priority
+        
+        if let taskName = taskName.text, let tag = taskTag.text {
+            postTodo(todo: taskName, tag: tag, priority: taskPriority)
+        }
+    }
+    
+    
     @objc func panGestureRecognizerAction(sender: UIPanGestureRecognizer) {
         let translation = sender.translation(in: view)
         
@@ -48,5 +78,39 @@ class OverlayView: UIViewController {
                 }
             }
         }
+    }
+    
+    func postTodo(todo: String, tag: String, priority: String) {
+        let postURL = URL(string: "http://167.71.235.242:3000/todo")
+
+        var request = URLRequest(url: postURL!)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let body: [String : AnyHashable] = [
+            "title" : todo,
+            "author" : "Haarish",
+            "tag" : tag,
+            "is_Completed" : false,
+            "priority" : priority
+        ]
+        request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
+
+        let task = URLSession.shared.dataTask(with: request, completionHandler: { data, response, error in
+
+            guard let data = data, error == nil else {
+                print("something went wrong")
+                return
+            }
+
+            do {
+                let response = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                print(response)
+            }
+            catch {
+                print(error)
+            }
+        })
+
+        task.resume()
     }
 }

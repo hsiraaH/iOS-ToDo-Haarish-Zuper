@@ -87,10 +87,10 @@
 				EAEB07EB27C6925B0071AA0B /* AppDelegate.swift */,
 				EAEB07ED27C6925B0071AA0B /* SceneDelegate.swift */,
 				EAEB07F127C6925B0071AA0B /* Main.storyboard */,
+				EAB75FDA27C7839F0075B74F /* OverlayView.xib */,
 				EAEB07F627C6925D0071AA0B /* LaunchScreen.storyboard */,
 				EAEB07F427C6925D0071AA0B /* Assets.xcassets */,
 				EAEB07F927C6925D0071AA0B /* Info.plist */,
-				EAB75FDA27C7839F0075B74F /* OverlayView.xib */,
 			);
 			path = "Haarish ToDo Zuper";
 			sourceTree = "<group>";
