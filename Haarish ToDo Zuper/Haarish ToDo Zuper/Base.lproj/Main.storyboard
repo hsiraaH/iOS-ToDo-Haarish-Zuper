@@ -67,7 +67,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="2oP-0y-PKP">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TodoCell" id="2oP-0y-PKP" customClass="TodoCell" customModule="Haarish_ToDo_Zuper" customModuleProvider="target">
                                         <rect key="frame" x="1.5" y="0.0" width="411" height="148"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3oR-Wd-rjT">
@@ -87,8 +87,9 @@
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tag" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osv-k9-Oyp">
                                                             <rect key="frame" x="60" y="45.5" width="27.5" height="92.5"/>
+                                                            <color key="backgroundColor" systemColor="systemTealColor"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Todo content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ebp-9n-kp0">
@@ -119,6 +120,7 @@
                                                         </view>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="tintColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="Ebp-9n-kp0" firstAttribute="leading" secondItem="ayH-2p-abe" secondAttribute="trailing" constant="20" id="9qh-cg-rJi"/>
                                                         <constraint firstItem="Ebp-9n-kp0" firstAttribute="top" secondItem="Hp5-7Y-LhE" secondAttribute="top" constant="15" id="AW9-Cp-6jE"/>
@@ -141,6 +143,14 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="411" height="148"/>
+                                        <connections>
+                                            <outlet property="borderView" destination="Hp5-7Y-LhE" id="xS4-D3-5qX"/>
+                                            <outlet property="contentLabel" destination="Ebp-9n-kp0" id="aXu-lp-xFM"/>
+                                            <outlet property="priorityCircle" destination="ayH-2p-abe" id="b6S-iP-PQI"/>
+                                            <outlet property="tagLabel" destination="osv-k9-Oyp" id="jMs-UB-HHm"/>
+                                            <outlet property="tickCircle" destination="kYq-3g-mue" id="IrE-EG-LUX"/>
+                                            <outlet property="tickImage" destination="Zr7-4t-0S9" id="YEB-Xk-Jij"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -159,6 +169,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Tkx-Nx-w30"/>
                     <connections>
+                        <outlet property="collectionView" destination="Tgj-y1-5gn" id="UZV-iP-xcN"/>
                         <outlet property="searchBar" destination="RNE-R7-kW8" id="vKT-qC-zug"/>
                     </connections>
                 </viewController>
@@ -216,6 +227,9 @@
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
