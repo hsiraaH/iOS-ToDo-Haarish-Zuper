@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA155EEF27C75A1500D740E4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA155EEE27C75A1500D740E4 /* Model.swift */; };
 		EAEB07EC27C6925B0071AA0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEB07EB27C6925B0071AA0B /* AppDelegate.swift */; };
 		EAEB07EE27C6925B0071AA0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEB07ED27C6925B0071AA0B /* SceneDelegate.swift */; };
 		EAEB07F027C6925B0071AA0B /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEB07EF27C6925B0071AA0B /* TodoViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EA155EEE27C75A1500D740E4 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		EAEB07E827C6925B0071AA0B /* Haarish ToDo Zuper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Haarish ToDo Zuper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAEB07EB27C6925B0071AA0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAEB07ED27C6925B0071AA0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +47,14 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		EA155EED27C759CB00D740E4 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				EA155EEE27C75A1500D740E4 /* Model.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		EAEB07DF27C6925B0071AA0B = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +74,7 @@
 		EAEB07EA27C6925B0071AA0B /* Haarish ToDo Zuper */ = {
 			isa = PBXGroup;
 			children = (
+				EA155EED27C759CB00D740E4 /* Base */,
 				EA155EEC27C7348B00D740E4 /* Controllers */,
 				EAEB07EB27C6925B0071AA0B /* AppDelegate.swift */,
 				EAEB07ED27C6925B0071AA0B /* SceneDelegate.swift */,
@@ -149,6 +160,7 @@
 				EAEB07F027C6925B0071AA0B /* TodoViewController.swift in Sources */,
 				EAEB07EC27C6925B0071AA0B /* AppDelegate.swift in Sources */,
 				EAEB07EE27C6925B0071AA0B /* SceneDelegate.swift in Sources */,
+				EA155EEF27C75A1500D740E4 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
