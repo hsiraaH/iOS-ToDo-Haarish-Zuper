@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		EA155EEF27C75A1500D740E4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA155EEE27C75A1500D740E4 /* Model.swift */; };
+		EAB75FD527C77F9D0075B74F /* PresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB75FD427C77F9D0075B74F /* PresentationController.swift */; };
+		EAB75FD927C780B20075B74F /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB75FD827C780B20075B74F /* OverlayView.swift */; };
+		EAB75FDB27C7839F0075B74F /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAB75FDA27C7839F0075B74F /* OverlayView.xib */; };
 		EAEB07EC27C6925B0071AA0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEB07EB27C6925B0071AA0B /* AppDelegate.swift */; };
 		EAEB07EE27C6925B0071AA0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEB07ED27C6925B0071AA0B /* SceneDelegate.swift */; };
 		EAEB07F027C6925B0071AA0B /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEB07EF27C6925B0071AA0B /* TodoViewController.swift */; };
@@ -18,6 +21,9 @@
 
 /* Begin PBXFileReference section */
 		EA155EEE27C75A1500D740E4 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		EAB75FD427C77F9D0075B74F /* PresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationController.swift; sourceTree = "<group>"; };
+		EAB75FD827C780B20075B74F /* OverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
+		EAB75FDA27C7839F0075B74F /* OverlayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OverlayView.xib; sourceTree = "<group>"; };
 		EAEB07E827C6925B0071AA0B /* Haarish ToDo Zuper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Haarish ToDo Zuper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAEB07EB27C6925B0071AA0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAEB07ED27C6925B0071AA0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +49,8 @@
 			isa = PBXGroup;
 			children = (
 				EAEB07EF27C6925B0071AA0B /* TodoViewController.swift */,
+				EAB75FD827C780B20075B74F /* OverlayView.swift */,
+				EAB75FD427C77F9D0075B74F /* PresentationController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -79,9 +87,10 @@
 				EAEB07EB27C6925B0071AA0B /* AppDelegate.swift */,
 				EAEB07ED27C6925B0071AA0B /* SceneDelegate.swift */,
 				EAEB07F127C6925B0071AA0B /* Main.storyboard */,
-				EAEB07F427C6925D0071AA0B /* Assets.xcassets */,
 				EAEB07F627C6925D0071AA0B /* LaunchScreen.storyboard */,
+				EAEB07F427C6925D0071AA0B /* Assets.xcassets */,
 				EAEB07F927C6925D0071AA0B /* Info.plist */,
+				EAB75FDA27C7839F0075B74F /* OverlayView.xib */,
 			);
 			path = "Haarish ToDo Zuper";
 			sourceTree = "<group>";
@@ -145,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAEB07F827C6925D0071AA0B /* LaunchScreen.storyboard in Resources */,
+				EAB75FDB27C7839F0075B74F /* OverlayView.xib in Resources */,
 				EAEB07F527C6925D0071AA0B /* Assets.xcassets in Resources */,
 				EAEB07F327C6925B0071AA0B /* Main.storyboard in Resources */,
 			);
@@ -160,7 +170,9 @@
 				EAEB07F027C6925B0071AA0B /* TodoViewController.swift in Sources */,
 				EAEB07EC27C6925B0071AA0B /* AppDelegate.swift in Sources */,
 				EAEB07EE27C6925B0071AA0B /* SceneDelegate.swift in Sources */,
+				EAB75FD927C780B20075B74F /* OverlayView.swift in Sources */,
 				EA155EEF27C75A1500D740E4 /* Model.swift in Sources */,
+				EAB75FD527C77F9D0075B74F /* PresentationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

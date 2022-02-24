@@ -79,6 +79,8 @@ class TodoViewController: UIViewController {
         
         title = "Todo"
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showOverlay))
+        
         if #available(iOS 13.0, *) {
             let navBarAppearance = UINavigationBarAppearance()
             navBarAppearance.configureWithOpaqueBackground()
@@ -98,6 +100,17 @@ class TodoViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
+    
+    @objc func showOverlay() {
+            let slideVC = OverlayView()
+            slideVC.modalPresentationStyle = .custom
+            slideVC.transitioningDelegate = self
+            self.present(slideVC, animated: true, completion: nil)
+        }
+        
+        @IBAction func onButton(_ sender: Any) {
+            showOverlay()
+        }
     
     func getTodo() {
         let url = "http://167.71.235.242:3000/todo?_page=1&_limit=15&author=Haarish"
@@ -162,5 +175,11 @@ extension TodoViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.setData(priority: item?.priority?.rawValue, todo: item?.title, tag: item?.tag, isCompleted: item?.isCompleted)
         
         return cell
+    }
+}
+
+extension TodoViewController: UIViewControllerTransitioningDelegate {
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        PresentationController(presentedViewController: presented, presenting: presenting)
     }
 }
