@@ -17,6 +17,8 @@
 		EAEB07F327C6925B0071AA0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAEB07F127C6925B0071AA0B /* Main.storyboard */; };
 		EAEB07F527C6925D0071AA0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAEB07F427C6925D0071AA0B /* Assets.xcassets */; };
 		EAEB07F827C6925D0071AA0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAEB07F627C6925D0071AA0B /* LaunchScreen.storyboard */; };
+		EAF94CE427C7AD2A009E3E35 /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF94CE327C7AD2A009E3E35 /* TodoCell.swift */; };
+		EAF94CE627C7AEA1009E3E35 /* TagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF94CE527C7AEA1009E3E35 /* TagViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		EAEB07F427C6925D0071AA0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EAEB07F727C6925D0071AA0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EAEB07F927C6925D0071AA0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAF94CE327C7AD2A009E3E35 /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
+		EAF94CE527C7AEA1009E3E35 /* TagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +54,8 @@
 			children = (
 				EAEB07EF27C6925B0071AA0B /* TodoViewController.swift */,
 				EAB75FD827C780B20075B74F /* OverlayView.swift */,
-				EAB75FD427C77F9D0075B74F /* PresentationController.swift */,
+				EAF94CE327C7AD2A009E3E35 /* TodoCell.swift */,
+				EAF94CE527C7AEA1009E3E35 /* TagViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -59,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				EA155EEE27C75A1500D740E4 /* Model.swift */,
+				EAB75FD427C77F9D0075B74F /* PresentationController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -169,8 +175,10 @@
 			files = (
 				EAEB07F027C6925B0071AA0B /* TodoViewController.swift in Sources */,
 				EAEB07EC27C6925B0071AA0B /* AppDelegate.swift in Sources */,
+				EAF94CE427C7AD2A009E3E35 /* TodoCell.swift in Sources */,
 				EAEB07EE27C6925B0071AA0B /* SceneDelegate.swift in Sources */,
 				EAB75FD927C780B20075B74F /* OverlayView.swift in Sources */,
+				EAF94CE627C7AEA1009E3E35 /* TagViewController.swift in Sources */,
 				EA155EEF27C75A1500D740E4 /* Model.swift in Sources */,
 				EAB75FD527C77F9D0075B74F /* PresentationController.swift in Sources */,
 			);

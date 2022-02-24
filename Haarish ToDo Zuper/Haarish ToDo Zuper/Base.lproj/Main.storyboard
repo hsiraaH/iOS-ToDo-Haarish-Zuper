@@ -177,15 +177,15 @@
             </objects>
             <point key="canvasLocation" x="-81.159420289855078" y="1153.7946428571429"/>
         </scene>
-        <!--View Controller-->
+        <!--Tag View Controller-->
         <scene sceneID="FMA-3a-qjd">
             <objects>
-                <viewController id="BG5-i2-NKd" sceneMemberID="viewController">
+                <viewController id="BG5-i2-NKd" customClass="TagViewController" customModule="Haarish_ToDo_Zuper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7uO-Ne-9Xg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="tL8-Qp-CnX">
+                            <searchBar contentMode="redraw" placeholder="Search by tags" translatesAutoresizingMaskIntoConstraints="NO" id="tL8-Qp-CnX">
                                 <rect key="frame" x="0.0" y="88" width="414" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -193,22 +193,81 @@
                                 <rect key="frame" x="0.0" y="139" width="414" height="674"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2wh-2F-cS0">
-                                    <size key="itemSize" width="413" height="141"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="itemSize" width="413" height="131"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Sgr-fr-rNb">
-                                        <rect key="frame" x="0.5" y="0.0" width="413" height="141"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TagCell" id="Sgr-fr-rNb" customClass="TagCell" customModule="Haarish_ToDo_Zuper" customModuleProvider="target">
+                                        <rect key="frame" x="0.5" y="50" width="413" height="131"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="iap-TW-8jw">
-                                            <rect key="frame" x="0.0" y="0.0" width="413" height="141"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="413" height="131"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CWV-Ov-m6n">
+                                                    <rect key="frame" x="0.0" y="0.0" width="413" height="131"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4iK-BV-kzt">
+                                                            <rect key="frame" x="20" y="55.5" width="20" height="20"/>
+                                                            <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="20" id="D8j-9P-lTk"/>
+                                                                <constraint firstAttribute="height" constant="20" id="ah4-DI-fyG"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Todo content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mu5-P9-iRB">
+                                                            <rect key="frame" x="60" y="55.5" width="101" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="Mu5-P9-iRB" firstAttribute="leading" secondItem="4iK-BV-kzt" secondAttribute="trailing" constant="20" id="I9n-Fo-Dm6"/>
+                                                        <constraint firstItem="4iK-BV-kzt" firstAttribute="centerY" secondItem="CWV-Ov-m6n" secondAttribute="centerY" id="Twa-FE-lf3"/>
+                                                        <constraint firstItem="Mu5-P9-iRB" firstAttribute="centerY" secondItem="4iK-BV-kzt" secondAttribute="centerY" id="d6B-Zh-lWO"/>
+                                                        <constraint firstItem="4iK-BV-kzt" firstAttribute="leading" secondItem="CWV-Ov-m6n" secondAttribute="leading" constant="20" id="gac-e2-PBf"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="CWV-Ov-m6n" firstAttribute="leading" secondItem="iap-TW-8jw" secondAttribute="leading" id="6dv-WB-Mcx"/>
+                                                <constraint firstItem="CWV-Ov-m6n" firstAttribute="top" secondItem="iap-TW-8jw" secondAttribute="top" id="PJA-Ow-pP6"/>
+                                                <constraint firstAttribute="trailing" secondItem="CWV-Ov-m6n" secondAttribute="trailing" id="Pif-Cf-re7"/>
+                                                <constraint firstAttribute="bottom" secondItem="CWV-Ov-m6n" secondAttribute="bottom" id="cJ3-ad-X3Q"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="413" height="141"/>
+                                        <size key="customSize" width="413" height="131"/>
+                                        <connections>
+                                            <outlet property="borderView" destination="CWV-Ov-m6n" id="SKi-Fx-02z"/>
+                                            <outlet property="priorityCircle" destination="4iK-BV-kzt" id="I98-O5-G7Y"/>
+                                            <outlet property="todo" destination="Mu5-P9-iRB" id="cYH-T6-G36"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SectionHeader" id="t36-dz-3m8" customClass="SectionHeader" customModule="Haarish_ToDo_Zuper" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tag" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYG-W5-ZJv">
+                                            <rect key="frame" x="18" y="16" width="25" height="18"/>
+                                            <color key="backgroundColor" systemColor="systemTealColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="KYG-W5-ZJv" firstAttribute="centerY" secondItem="t36-dz-3m8" secondAttribute="centerY" id="6kG-ka-I4R"/>
+                                        <constraint firstItem="KYG-W5-ZJv" firstAttribute="leading" secondItem="t36-dz-3m8" secondAttribute="leadingMargin" constant="10" id="gWp-Gl-17l"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="tagName" destination="KYG-W5-ZJv" id="21y-yE-CCl"/>
+                                    </connections>
+                                </collectionReusableView>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9et-Vo-My1"/>
@@ -224,10 +283,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="D5I-AT-Vd3"/>
+                    <connections>
+                        <outlet property="collectionView" destination="idR-gs-3CG" id="cRL-ZZ-3Sf"/>
+                        <outlet property="searchBar" destination="tL8-Qp-CnX" id="eAh-Uf-0Mw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5OO-aR-IBM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="918.84057971014499" y="1149.7767857142856"/>
+            <point key="canvasLocation" x="918.84057971014499" y="1149.1071428571429"/>
         </scene>
         <!--Tags-->
         <scene sceneID="3Hz-GY-AUp">

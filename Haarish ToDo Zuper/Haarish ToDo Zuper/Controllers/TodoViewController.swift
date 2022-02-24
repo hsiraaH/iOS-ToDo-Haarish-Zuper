@@ -7,63 +7,6 @@
 
 import UIKit
 
-class TodoCell: UICollectionViewCell {
-    @IBOutlet weak var borderView: UIView! {
-        didSet {
-            borderView.layer.cornerRadius = 10
-            borderView.layer.borderWidth = 1
-            borderView.layer.borderColor = UIColor.systemGray4.cgColor
-        }
-    }
-    @IBOutlet weak var tickImage: UIImageView!
-    @IBOutlet weak var tickCircle: UIView! {
-        didSet {
-            tickCircle.layer.borderWidth = 1
-            tickCircle.layer.borderColor = UIColor.systemGray4.cgColor
-            tickCircle.layer.cornerRadius = tickCircle.frame.height / 2
-            tickCircle.layer.shouldRasterize = true
-        }
-    }
-    @IBOutlet weak var tagLabel: UILabel! {
-        didSet {
-            tagLabel.layer.cornerRadius = 1
-            tagLabel.layer.masksToBounds = true
-        }
-    }
-    @IBOutlet weak var contentLabel: UILabel!
-    @IBOutlet weak var priorityCircle: UIView! {
-        didSet {
-            priorityCircle.layer.cornerRadius = priorityCircle.frame.height / 2
-            priorityCircle.layer.shouldRasterize = true
-        }
-    }
-    let identifier = "TodoCell"
-    
-    func setData(priority: String?, todo: String?, tag: String?, isCompleted: Bool?) {
-        contentLabel.text = todo ?? ""
-        tagLabel.text = tag ?? ""
-        
-        if isCompleted == false || isCompleted == nil {
-            tickCircle.backgroundColor = UIColor.clear
-            tickImage.isHidden = true
-        }
-        
-        switch(priority) {
-        case "LOW":
-            priorityCircle.backgroundColor = UIColor.green
-        
-        case "MEDIUM":
-            priorityCircle.backgroundColor = UIColor.orange
-            
-        case "HIGH":
-            priorityCircle.backgroundColor = UIColor.red
-            
-        default:
-            priorityCircle.backgroundColor = UIColor.clear
-        }
-    }
-}
-
 class TodoViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
@@ -108,7 +51,7 @@ class TodoViewController: UIViewController {
             self.present(slideVC, animated: true, completion: nil)
         }
         
-        @IBAction func onButton(_ sender: Any) {
+    @IBAction func onButton(_ sender: Any) {
             showOverlay()
         }
     
@@ -136,8 +79,46 @@ class TodoViewController: UIViewController {
         task.resume()
     }
     
-    func updateCompleted() {
+    func updateCompleted(todo: Datum) {
+        let tag = String(todo.tag!)
+        let title = String(todo.title!)
+        let priority = todo.priority?.rawValue
+        let id = String(todo.id!)
         
+        let putURL = URL(string: "http://167.71.235.242:3000/todo/\(id)")
+        var request = URLRequest(url: putURL!)
+        request.httpMethod = "PUT"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let body: [String : AnyHashable] = [
+            "tag": tag,
+            "title": title,
+            "author": "Haarish",
+            "is_Completed": "True",
+            "priority": priority,
+            "id": id
+        ]
+        request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
+
+        let task = URLSession.shared.dataTask(with: request, completionHandler: { data, response, error in
+
+            guard let data = data, error == nil else {
+                print("something went wrong")
+                return
+            }
+
+            do {
+                let response = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                print(response)
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            }
+            catch {
+                print(error)
+            }
+        })
+
+        task.resume()
     }
     
     @available(iOS 13.0, *)
@@ -185,8 +166,12 @@ extension TodoViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let item = todoList?.data![indexPath.item]
+        let item = todoList?.data![indexPath.row]
         
+        
+        if item?.isCompleted == nil || item?.isCompleted == false {
+            updateCompleted(todo: item!)
+        }
     }
 }
 
