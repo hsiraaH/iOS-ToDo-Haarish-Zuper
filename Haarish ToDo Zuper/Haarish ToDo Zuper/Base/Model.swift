@@ -8,7 +8,7 @@
 import UIKit
 
 struct TodoList: Codable {
-    let data: [Datum]?
+    var data: [Datum]?
     let totalRecords: Int?
 
     enum CodingKeys: String, CodingKey {

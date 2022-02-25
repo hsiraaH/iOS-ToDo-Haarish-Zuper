@@ -56,7 +56,7 @@ class TodoViewController: UIViewController {
         }
     
     func getTodo() {
-        let url = "http://167.71.235.242:3000/todo?_page=1&_limit=15&author=Haarish"
+        let url = "http://167.71.235.242:3000/todo?_page=1&_limit=1500&author=Haarish"
 
         let task = URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: { data, response, error in
 
@@ -67,6 +67,7 @@ class TodoViewController: UIViewController {
             
             do {
                 self.todoList = try JSONDecoder().decode(TodoList.self, from: data)
+                self.todoList?.data?.reverse()
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }
